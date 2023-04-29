@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/kuoto/Development/flutter
-FLUTTER_APPLICATION_PATH=/Users/kuoto/Projects/math_helper
+FLUTTER_ROOT=/Users/tony/Library/Application Support/fvm/versions/3.3.9
+FLUTTER_APPLICATION_PATH=/Users/tony/flutter_side_project/math_helper
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=0.0.1
