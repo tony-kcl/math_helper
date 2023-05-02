@@ -1,10 +1,10 @@
 /// 直線方程式 cy = ax + b
-/// Line equation cy = ax + b
-class LineEquation {
+/// Linear equation cy = ax + b
+class LinearEquation {
   final double a;
   final double b;
   final double c;
-  LineEquation({
+  LinearEquation({
     required this.a,
     required this.b,
     required this.c,

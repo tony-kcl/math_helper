@@ -6,7 +6,7 @@ import 'dart:ui';
 import 'package:tuple/tuple.dart';
 
 import 'circle_equation.dart';
-import 'line_equation.dart';
+import 'linear_equation.dart';
 
 /// A class to assist users in Flutter to create and calculate various geometric relationships on coordinates.
 class MathHelper {
@@ -24,9 +24,9 @@ class MathHelper {
   }
 
   /// 求圓形和直線的交點, 若傳入未相交的線則會回傳 null
-  /// Calculate the intersection point(s) between given line equation and circle equation, 
+  /// Calculate the intersection point(s) between given linear equation and circle equation, 
   /// if there is no intersection point, then return null
-  static Tuple2<Offset?, Offset?> getIntersectionBetweenCircleAndLine(LineEquation line, CircleEquation circle) {
+  static Tuple2<Offset?, Offset?> getIntersectionBetweenCircleAndLine(LinearEquation line, CircleEquation circle) {
     final h = circle.h;
     final k = circle.k;
     final r = circle.r;
@@ -84,18 +84,18 @@ class MathHelper {
     return CircleEquation(h: p1.dx, k: p1.dy, r: r);
   }
 
-  /// 從兩點算出其直線方程式, cy = ax + b [LineEquation]
-  /// According to the given points, calculate the line equation, cy = ax + b [LineEquation]
-  static LineEquation getLineEquation(Offset p1, Offset p2) {
+  /// 從兩點算出其直線方程式, cy = ax + b [LinearEquation]
+  /// According to the given points, calculate the linear equation, cy = ax + b [LinearEquation]
+  static LinearEquation getLineEquation(Offset p1, Offset p2) {
     if (p1 == p2) throw 'Should not pass the same point';
     final double a = (p1.dx - p2.dx) == 0 ? 1 : (p1.dy - p2.dy) / (p1.dx - p2.dx);
     final double b = (p1.dx - p2.dx) == 0 ? -p1.dx : p1.dy - a * p1.dx;
-    return LineEquation(a: a, b: b, c: (p1.dx - p2.dx) == 0 ? 0 : 1);
+    return LinearEquation(a: a, b: b, c: (p1.dx - p2.dx) == 0 ? 0 : 1);
   }
 
   /// 根據 x 及 直線方程式 求出 y, 如果 y 為任意數則回傳 null
-  /// According to the given x and line equation to calculate y, if y is any number then return null
-  static double? getYFromLineEquation(LineEquation line, double x) {
+  /// According to the given x and linear equation to calculate y, if y is any number then return null
+  static double? getYFromLineEquation(LinearEquation line, double x) {
     if (line.c == 0) {
       return null;
     }
@@ -103,22 +103,22 @@ class MathHelper {
   }
 
   /// 求 p1 與所給線的垂直方程式
-  /// Get the perpendicular equation from p1 and given line equation
-  static LineEquation getIntersection(LineEquation line, Offset p1) {
+  /// Get the perpendicular equation from p1 and given linear equation
+  static LinearEquation getIntersection(LinearEquation line, Offset p1) {
     if (line.a != 0) {
       double m = -line.c / line.a;
       double a = m;
       double b = -m * p1.dx + p1.dy;
       double c = 1;
-      return LineEquation(a: a, b: b, c: c); 
+      return LinearEquation(a: a, b: b, c: c); 
     } else {
-      return LineEquation(a: 1, b: -p1.dx, c: 0);
+      return LinearEquation(a: 1, b: -p1.dx, c: 0);
     }
   }
 
   /// 求兩直線方程式的交點, 如果沒有交點則會回傳 null
-  /// Get the intersection point of two line equation, if there is no intersection point, will return null
-  static Offset? getTwoLineIntersection(LineEquation line, LineEquation line2) {
+  /// Get the intersection point of two linear equation, if there is no intersection point, will return null
+  static Offset? getTwoLineIntersection(LinearEquation line, LinearEquation line2) {
     if (line.c != 0 && line2.c != 0) {
       if (line.a / line.c == line2.a / line2.c) {
         // 兩線平行沒有交點
@@ -141,13 +141,13 @@ class MathHelper {
 
   /// 求點到線垂直相交的點
   /// Find the point of intersection between the given point and the given line perpendicular to it
-  static Offset getPointVerticalToLine(LineEquation line, Offset p1) {
+  static Offset getPointVerticalToLine(LinearEquation line, Offset p1) {
     return getTwoLineIntersection(getIntersection(line, p1), line)!;
   }
 
   /// 算點到直線之最短距離
   /// Calculate the shortest distance from the given point to the given line
-  static double getPointToLineDistance(Offset p1, LineEquation line) {
+  static double getPointToLineDistance(Offset p1, LinearEquation line) {
     return (line.a * p1.dx + -line.c * p1.dy + line.b).abs() / sqrt(line.a * line.a + line.c * line.c);
   }
 
