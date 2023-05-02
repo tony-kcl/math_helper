@@ -12,6 +12,7 @@ and the Flutter guide for
 -->
 
 Provides standard geometry mathematical functions including circle and linear equations, still updating.
+It is very helpful while drawing lines and shapes on canvas.
 
 ## Features
 
@@ -19,3 +20,11 @@ Provides standard geometry mathematical functions including circle and linear eq
 2. Provide circle equation.
 3. Calculate the relation among linear, circle equation and points.
 
+## Contents
+- [Usage] (#Usage)
+
+## Usage
+```dart
+final line = MathHelper.getLineEquation(Offset(0, 0), Offset(5, 5));
+final distance = MathHelper.getDistanceBetweenTwoPoint(Offset(0, 0), Offset(10, 0));
+```
