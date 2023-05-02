@@ -1,10 +1,10 @@
 name: math_helper
 description: A Flutter package to create and calculate various geometric relationships on coordinate.
-version: 0.0.4
+version: 0.0.5
 repository: https://github.com/tony-kcl/math_helper
 
 environment:
-  sdk: '>=2.19.6 <4.0.0'
+  sdk: '>=2.12.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

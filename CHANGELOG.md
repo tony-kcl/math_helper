@@ -12,3 +12,6 @@
 
 ## 0.0.4
 * Update Readme
+
+## 0.0.5
+* Downgrade the minimum version of Dart SDK
