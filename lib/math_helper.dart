@@ -73,7 +73,7 @@ class MathHelper {
   }
 
   /// 計算兩點之間的距離
-  /// Calculate the point between two point
+  /// Calculate the distacne between two point
   static double getDistanceBetweenTwoPoint(Offset p1, Offset p2) {
     return sqrt(pow(p1.dx - p2.dx, 2) + pow(p1.dy - p2.dy, 2));
   }
