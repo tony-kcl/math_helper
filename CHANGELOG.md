@@ -9,3 +9,6 @@
 ## 0.0.3
 * Update Readme
 * Fix some note in helper
+
+## 0.0.4
+* Update Readme
